@@ -1,0 +1,21 @@
+{
+  "name": "api-fetch-with-aws-sigv4",
+  "version": "1.0.0",
+  "description": "Fetch AWS API Gateway with Signature Version 4 (Aws Sigv4)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Fetch",
+    "AWS",
+    "API",
+    "Gateway",
+    "with",
+    "Signature",
+    "Version",
+    "4"
+  ],
+  "author": "Tam Nguyen",
+  "license": "ISC"
+}
