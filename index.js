@@ -1,5 +1,5 @@
-function hello() {
-  console.log("Hi, Tam Tam");
-}
+"use strict";
 
-export default hello;
+module.exports = function(msg) {
+  console.log(msg);
+};
