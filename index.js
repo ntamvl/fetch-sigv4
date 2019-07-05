@@ -19,6 +19,9 @@ function fetchApiSigv4(config) {
   var data = config["data"];
   var endpointURL = url.parse(config["endpoint"]);
   var method = config["method"];
+  var accessKeyId = config["accessKeyId"];
+  var secretAccessKey = config["secretAccessKey"];
+  var sessionToken = config["sessionToken"];
 
   let request = {
     host: endpointURL.host,
@@ -36,9 +39,9 @@ function fetchApiSigv4(config) {
     // assumes user has authenticated and we have called
     // AWS.config.credentials.get to retrieve keys and
     // session tokens
-    secretAccessKey: AWS.config.credentials.secretAccessKey,
-    accessKeyId: AWS.config.credentials.accessKeyId,
-    sessionToken: AWS.config.credentials.sessionToken
+    secretAccessKey: secretAccessKey || AWS.config.credentials.secretAccessKey,
+    accessKeyId: accessKeyId || AWS.config.credentials.accessKeyId,
+    sessionToken: sessionToken || AWS.config.credentials.sessionToken
   });
 
   delete signedRequest.headers["Host"];
