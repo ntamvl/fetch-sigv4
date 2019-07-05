@@ -14,13 +14,12 @@ yarn add fetch-sigv4
 ```
 
 ## Configuration Options
-
-    - `endpoint`: required, your api gateway endpoint
-    - `method`: required, should be POST | GET | PUT | OPTIONS
-    - `data`: required for method POST | PUT, your object data to send to the api
-    - `accessKeyId`: optional, default use AWS.config.credentials
-    - `secretAccessKey`: optional, default use AWS.config.credentials
-    - `sessionToken`: optional, default use AWS.config.credentials
+- `endpoint`: required, your api gateway endpoint
+- `method`: required, should be POST | GET | PUT | OPTIONS
+- `data`: required for method POST | PUT, your object data to send to the api
+- `accessKeyId`: optional, default use AWS.config.credentials
+- `secretAccessKey`: optional, default use AWS.config.credentials
+- `sessionToken`: optional, default use AWS.config.credentials
 
 ```
 var config = {
