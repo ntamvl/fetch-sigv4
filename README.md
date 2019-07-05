@@ -9,7 +9,7 @@ npm install api-fetch-with-aws-sigv4
 
 ## Example:
 ```javascript
-var fetchApiSigv4 = require("api-fetch-with-aws-sigv4")
+var fetchApiSigv4 = require("fetch-sigv4")
 
 var config = {
     endpoint: "https://[your-api-id].execute-api.[region].amazonaws.com/[stage]/v1/authors",
