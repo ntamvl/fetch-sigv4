@@ -1,5 +1,5 @@
 {
-  "name": "api-fetch-with-aws-sigv4",
+  "name": "fetch-sigv4",
   "version": "1.0.0",
   "description": "Fetch AWS API Gateway with Signature Version 4 (Aws Sigv4)",
   "main": "index.js",
@@ -16,7 +16,7 @@
     "Version",
     "4"
   ],
-  "author": "Tam Nguyen",
+  "author": "Tam Nguyen <ntamvl@gmail.com> (https://github.com/ntamvl)",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^12.0.10",
@@ -24,5 +24,9 @@
     "axios": "^0.19.0",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ntamvl/fetch-sigv4"
   }
 }
