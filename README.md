@@ -21,6 +21,7 @@ yarn add fetch-sigv4
 - `secretAccessKey`: optional, default use AWS.config.credentials
 - `sessionToken`: optional, default use AWS.config.credentials
 
+Configuration object:
 ```
 var config = {
   endpoint: "required --> your api gateway endpoint",
@@ -29,6 +30,7 @@ var config = {
   accessKeyId: "[your aws accessKeyId, default use AWS.config.credentials]",
   secretAccessKey: "[your aws secretAccessKey, default use AWS.config.credentials]",
   sessionToken: "[your aws sessionToken, default use AWS.config.credentials]"
+}
 ```
 
 ## Example:
