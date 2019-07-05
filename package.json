@@ -1,6 +1,6 @@
 {
   "name": "fetch-sigv4",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fetch AWS API Gateway with Signature Version 4 (Aws Sigv4)",
   "main": "index.js",
   "scripts": {
