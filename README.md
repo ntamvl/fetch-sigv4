@@ -4,7 +4,13 @@ It's easy to call AWS API Gateway use SigV4
 
 ## How to install
 ```
-npm install fetch-sigv4
+npm install fetch-sigv4 --save
+```
+
+OR
+
+```
+yarn add fetch-sigv4
 ```
 
 ## Example:
