@@ -47,7 +47,7 @@ function fetchApiSigv4(config) {
   delete signedRequest.headers["Host"];
   delete signedRequest.headers["Content-Length"];
 
-  let response = await axios(signedRequest);
+  let response = axios(signedRequest);
   return response;
 }
 
