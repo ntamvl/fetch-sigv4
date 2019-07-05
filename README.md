@@ -1,4 +1,6 @@
-# Fetch AWS API Gateway with Signature Version 4 (Aws Sigv4)
+# Fetch AWS API Gateway with Signature Version 4
+
+It's easy to call AWS API Gateway use SigV4
 
 ## How to install
 ```
