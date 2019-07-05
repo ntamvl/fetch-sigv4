@@ -13,6 +13,25 @@ OR
 yarn add fetch-sigv4
 ```
 
+## Configuration Options
+
+    - `endpoint`: required, your api gateway endpoint
+    - `method`: required, should be POST | GET | PUT | OPTIONS
+    - `data`: required for method POST | PUT, your object data to send to the api
+    - `accessKeyId`: optional, default use AWS.config.credentials
+    - `secretAccessKey`: optional, default use AWS.config.credentials
+    - `sessionToken`: optional, default use AWS.config.credentials
+
+```
+var config = {
+  endpoint: "required --> your api gateway endpoint",
+  method: "POST | GET | PUT | OPTIONS",
+  data: [your object data to send to the api],
+  accessKeyId: "[your aws accessKeyId, default use AWS.config.credentials]",
+  secretAccessKey: "[your aws secretAccessKey, default use AWS.config.credentials]",
+  sessionToken: "[your aws sessionToken, default use AWS.config.credentials]"
+```
+
 ## Example:
 ```javascript
 var fetchApiSigv4 = require("fetch-sigv4")
