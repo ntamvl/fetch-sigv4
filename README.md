@@ -55,9 +55,13 @@ var config = {
 // }
 
 const runDemo = async () => {
-    console.log("Starting to run demo...");
-    const response = await fetchApiSigv4(config);
-    console.log("response: ", response);
+    try {
+        console.log("Starting to run demo...");
+        const response = await fetchApiSigv4(config);
+        console.log("response data: ", response.data);
+    } catch (error) {
+        console.log("error: ", error);
+    }
 }
 
 runDemo();
