@@ -46,6 +46,14 @@ var config = {
     }
 }
 
+// var config = {
+//     endpoint: "https://[your-api-id].execute-api.[region].amazonaws.com/[stage]/v1/authors",
+//     method: "GET",
+//     headers: { "X-Request-ID": "1234" },
+//     secretAccessKey: "your secret access key",
+//     accessKeyId: "your access key id"
+// }
+
 const runDemo = async () => {
     console.log("Starting to run demo...");
     const response = await fetchApiSigv4(config);
