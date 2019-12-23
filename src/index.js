@@ -44,8 +44,6 @@ function fetchApiSigv4(config) {
         }
     }
 
-    console.log("request: ", request);
-
     let signedRequest = aws4.sign(request, {
         // assumes user has authenticated and we have called
         // AWS.config.credentials.get to retrieve keys and
