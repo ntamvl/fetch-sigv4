@@ -16,39 +16,50 @@ var url = require("url");
 // }
 
 function fetchApiSigv4(config) {
-  var data = config["data"];
-  var endpointURL = url.parse(config["endpoint"]);
-  var method = config["method"];
-  var accessKeyId = config["accessKeyId"];
-  var secretAccessKey = config["secretAccessKey"];
-  var sessionToken = config["sessionToken"];
+    var data = config["data"];
+    var endpointURL = url.parse(config["endpoint"]);
+    var method = config["method"];
+    var accessKeyId = config["accessKeyId"];
+    var secretAccessKey = config["secretAccessKey"];
+    var sessionToken = config["sessionToken"];
+    var headers = config["headers"] || {};
 
-  let request = {
-    host: endpointURL.host,
-    method: method,
-    url: endpointURL.href,
-    data: data,
-    body: JSON.stringify(data),
-    path: endpointURL.path,
-    headers: {
-      "content-type": "application/json"
+    let request = {
+        host: endpointURL.host,
+        method: method,
+        url: endpointURL.href,
+        path: endpointURL.path,
+    };
+
+    if (config["headers"]) {
+        request["headers"] = headers
     }
-  };
 
-  let signedRequest = aws4.sign(request, {
-    // assumes user has authenticated and we have called
-    // AWS.config.credentials.get to retrieve keys and
-    // session tokens
-    secretAccessKey: secretAccessKey || AWS.config.credentials.secretAccessKey,
-    accessKeyId: accessKeyId || AWS.config.credentials.accessKeyId,
-    sessionToken: sessionToken || AWS.config.credentials.sessionToken
-  });
+    if (data) {
+        request["data"] = data;
+        request["body"] = JSON.stringify(data);
+        request["headers"] = {
+            ...headers,
+            "content-type": "application/json"
+        }
+    }
 
-  delete signedRequest.headers["Host"];
-  delete signedRequest.headers["Content-Length"];
+    console.log("request: ", request);
 
-  let response = axios(signedRequest);
-  return response;
+    let signedRequest = aws4.sign(request, {
+        // assumes user has authenticated and we have called
+        // AWS.config.credentials.get to retrieve keys and
+        // session tokens
+        secretAccessKey: secretAccessKey || AWS.config.credentials.secretAccessKey,
+        accessKeyId: accessKeyId || AWS.config.credentials.accessKeyId,
+        sessionToken: sessionToken || AWS.config.credentials.sessionToken
+    });
+
+    delete signedRequest.headers["Host"];
+    delete signedRequest.headers["Content-Length"];
+
+    let response = axios(signedRequest);
+    return response;
 }
 
 module.exports = fetchApiSigv4;
