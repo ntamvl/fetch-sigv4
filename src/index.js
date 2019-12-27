@@ -44,14 +44,22 @@ function fetchApiSigv4(config) {
         }
     }
 
-    let signedRequest = aws4.sign(request, {
-        // assumes user has authenticated and we have called
-        // AWS.config.credentials.get to retrieve keys and
-        // session tokens
-        secretAccessKey: secretAccessKey || AWS.config.credentials.secretAccessKey,
-        accessKeyId: accessKeyId || AWS.config.credentials.accessKeyId,
-        sessionToken: sessionToken || AWS.config.credentials.sessionToken
-    });
+    // assumes user has authenticated and we have called
+    // AWS.config.credentials.get to retrieve keys and
+    // session tokens
+    // secretAccessKey: secretAccessKey || AWS.config.credentials.secretAccessKey,
+    // accessKeyId: accessKeyId || AWS.config.credentials.accessKeyId,
+    // sessionToken: sessionToken || AWS.config.credentials.sessionToken
+    let requestOptions = {
+        secretAccessKey,
+        accessKeyId
+    }
+
+    if (sessionToken) {
+        requestOptions["sessionToken"] = sessionToken;
+    }
+
+    let signedRequest = aws4.sign(request, requestOptions);
 
     delete signedRequest.headers["Host"];
     delete signedRequest.headers["Content-Length"];
